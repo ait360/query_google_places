@@ -2,14 +2,14 @@ import xlsxwriter as xls
 
 
 
-def create_workbook(state=''):
+def create_workbook(entity='', state=''):
     # Create an Excel workbook
     if state:
         xls_filename = state + '.xlsx'
 
     else:
 
-        xls_filename = "Pharmacy.xlsx"
+        xls_filename = f"{entity}.xlsx"
 
     workbook = xls.Workbook(xls_filename)
 
@@ -17,11 +17,13 @@ def create_workbook(state=''):
 
 
 def create_worksheet(workbook, data, state):
-    """ Add worksheets to the workbook created
+    """
+    Add worksheets to the workbook created
     in the create_workbook function
-    :param workbook: returned by create_workbook
-    :param data: entries
-    :param state: eg 'Abia', 'Lagos'
+
+    :param workbook:    returned by create_workbook
+    :param data:        entries
+    :param state:       eg 'Abia', 'Lagos'
     :return:
     """
 
@@ -45,4 +47,4 @@ def create_worksheet(workbook, data, state):
 
         row += 1
 
-    print('done creating excel sheet for {}'.format(state))
+    print(f'done creating excel sheet for {state}')
