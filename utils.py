@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def get_queried_data(results, state_data=[]):
+def get_queried_data(results, state_data=set()):
     """
     get required attributes and see if data is unique
 
@@ -19,8 +19,9 @@ def get_queried_data(results, state_data=[]):
         longitude = str(result.get('geometry').get('location').get('lng'))
         place_id =  result.get("place_id")
         entry = (name, address, latitude, longitude, place_id)
-        if entry not in state_data:
-            state_data.append(entry)
+
+        state_data.add(entry)
+
     return state_data
 
 
@@ -71,10 +72,6 @@ def is_running(func):
     if func.__name__ == 'get_state':
 
         print('querying state only')
-
-    elif func.__name__ == 'get_state_locality':
-
-        print('querying state and locality')
 
     elif func.__name__ == 'get_state_lga':
 
