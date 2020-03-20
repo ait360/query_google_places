@@ -1,0 +1,16 @@
+*** Querying google places ***
+
+Use: for querying google place api for local entities, institutions and business
+     those result are then presented in an Excel File in the working directory
+
+
+How: download or clone, via your Terminal of CMD, navigate into the querying_google_place
+     directory, run via "python query_entity.py" command
+
+
+you will be asked for the (1) entity to be searched, (2) google api key (3) if you're
+searching by state, if you are you will be asked for (4) the state, else it system will
+search for all states.
+
+Here states in Nigeria is used and can always fitted for any country using same process
+
