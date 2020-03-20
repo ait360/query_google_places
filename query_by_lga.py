@@ -5,21 +5,25 @@ from utils import get_queried_data, check_health, get_nextpage_data
 
 
 
-def get_state_lga(local_dict, google_api, action, api_key,
+def get_state_lga(lga_dict, google_api, action, api_key, entity,
                     state_data=None, state=''):
     """
-    query state and local government area
-    :param local_dict: keys = states, values = list of lga's
-    :param google_api: google api
-    :param action: query
-    :param api_key: unique google api key
-    :param state: state eg 'Abia'
-    :return: state_data
+    query per state and local government area
+    :param lga_dict:      keys = states, values = list of lga's
+    :param google_api:      google api https://maps.googleapis.com/maps/api/place/textsearch/json?
+    :param action:          query
+    :param api_key:         unique google api key
+    :param entity:          entities eg Restaurants, Hotels
+    :param state_data;      a set of unique data from previous processes
+    :param state:           state eg 'Abia'
+    :return:                state_data
     """
 
-    for lga in local_dict[state]:
+    for lga in lga_dict[state]:
         print(lga)
-        search = 'pharmacy+' + state + '+' + lga
+
+        search = f'{entity}+{state}+{lga}'
+
         link = google_api + action + search + api_key
 
 
@@ -39,13 +43,26 @@ def get_state_lga(local_dict, google_api, action, api_key,
 
 
 
-def get_lga(local_dict, google_api, action, api_key,
+def get_lga(lga_dict, google_api, action, api_key, entity,
                state_data=None, state=''):
+    """
+    query per local government area
 
+    :param lga_dict:      keys = states, values = list of lga's
+    :param google_api:      google api https://maps.googleapis.com/maps/api/place/textsearch/json?
+    :param action:          query
+    :param api_key:         unique google api key
+    :param entity:          entities eg Restaurants, Hotels
+    :param state_data;      a set of unique data from previous processes
+    :param state:           state eg 'Abia'
+    :return:                state_data
+    """
 
-    for lga in local_dict[state]:
+    for lga in lga_dict[state]:
         print(lga)
-        search = 'pharmacy+' + '+' + lga
+
+        search = f'{entity}+{lga}'
+
         link = google_api + action + search + api_key
 
         requested_obj = requests.get(link)
