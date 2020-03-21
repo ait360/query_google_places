@@ -70,9 +70,7 @@ if __name__ == '__main__':
     action = 'query='
 
 
-    ask_key = """input your api key,
-it is of the form
-&key=AIzaSyArrc8-wt9ombcwu62LwbcWeb67k_u6oAg  :  """
+    ask_key = """input your google api key  :  """
 
     api_key = input(ask_key)
 
