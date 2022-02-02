@@ -73,6 +73,8 @@ if __name__ == '__main__':
     ask_key = """input your google api key  :  """
 
     api_key = input(ask_key)
+    
+    api_key = "&key=" + api_key
 
     ask_entity = """
 
