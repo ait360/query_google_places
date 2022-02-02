@@ -32,9 +32,10 @@ def create_worksheet(workbook, data, state):
 
     attributes = [('A1','Name'),
 				   ('B1','Address'),
-				   ('C1','Latitude'),
-				   ('D1','Longitude'),
-				   ('E1','Place ID')]
+                ('C1', 'Phone Number'),
+				   ('D1','Latitude'),
+				   ('E1','Longitude'),
+				   ('F1','Place ID')]
     for col, attr in attributes:
         worksheet.write(col, attr, bold)
 

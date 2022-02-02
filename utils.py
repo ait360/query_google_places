@@ -18,7 +18,8 @@ def get_queried_data(results, state_data=set()):
         latitude =  str(result.get('geometry').get('location').get('lat'))
         longitude = str(result.get('geometry').get('location').get('lng'))
         place_id =  result.get("place_id")
-        entry = (name, address, latitude, longitude, place_id)
+        phone_number = result.get( "international_phone_number")
+        entry = (name, address, phone_number, latitude, longitude, place_id)
 
         state_data.add(entry)
 
